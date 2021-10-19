@@ -44,7 +44,7 @@ class Node(o.SimpleHandler):
 
     def node(self, n):
         if n.id in nodes :
-            self.writer.add_node(n)
+            self.writer.add_node(n.replace(tags={}))
 
 
 if __name__ == '__main__':
