@@ -34,7 +34,7 @@ class Way(o.SimpleHandler):
             for node in w.nodes:
                 if node.ref:
                     nodes.update([node.ref])
-            self.writer.add_way(w)
+            self.writer.add_way(w.replace(tags={}))
 
 class Node(o.SimpleHandler):
 
@@ -49,7 +49,7 @@ class Node(o.SimpleHandler):
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
-        print("Usage: python convert.py <infile> <outfile>")
+        print("Usage: python postcodes.py <infile> <outfile>")
         sys.exit(-1)
     
     writer = o.SimpleWriter(sys.argv[2])
@@ -60,9 +60,6 @@ if __name__ == '__main__':
     nodeHandler = Node(writer)
     nodeHandler.apply_file(sys.argv[1])
 
-
     writer.close()
 
-    print("done!")
-
-    #writer.close()
+    print("please run to finalize this file: `osmium sort -o output-sorted.osm.pbf output.osm.pbf -O`")
