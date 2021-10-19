@@ -1,1 +1,8 @@
 output.geojson
+.vscode/
+
+input.osm.pbf
+input-germany.osm.pbf
+output.osm.pbf
+output-sorted.osm.pbf
+output.json
